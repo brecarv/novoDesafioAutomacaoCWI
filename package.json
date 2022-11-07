@@ -1,0 +1,15 @@
+{
+  "name": "novodesafioautomacaocwi",
+  "version": "1.0.0",
+  "description": "Desafio de Automacao Web - CWI Reset",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Emerson Carvalho",
+  "license": "ISC",
+  "devDependencies": {
+    "@faker-js/faker": "^7.6.0",
+    "cypress": "^10.11.0"
+  }
+}
