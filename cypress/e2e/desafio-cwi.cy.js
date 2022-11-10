@@ -47,32 +47,10 @@ describe("Desafio Automação Web - CWI", () => {
     );
     cy.get("[data-ui-id='message-success']").should("exist");
 
-    // pageCustomerAccount - My Account
-    //cy.get("#block-collapsible-nav li:nth-child(1)").click();
     myAccountPage.visit();
     cy.get("[data-ui-id='page-title-wrapper']").should(
       "contain.text",
       "My Account"
     );
-  });
-
-  it.skip("teste botao", () => {
-    // Seletor Create Account .header.links > li:nth-child(3)
-    //cy.get(".header.links > li:nth-child(3)").first().click();
-    homePage.visitLoginPage();
-    cy.get("[data-ui-id='page-title-wrapper']").should(
-      "contain.text",
-      "Customer Login"
-    );
-
-    homePage.visitCreateAccountPage();
-    cy.get("[data-ui-id='page-title-wrapper']").should(
-      "contain.text",
-      "Create New Customer Account"
-    );
-
-    homePage.visit();
-
-    //homePage.visitMyAccountPage();
   });
 });
