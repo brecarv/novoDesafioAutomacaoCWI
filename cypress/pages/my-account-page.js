@@ -1,4 +1,4 @@
-class PageMyAccount {
+class MyAccountPage {
   url = "/customer/account";
   linkBillingAddressEdit = "[data-ui-id='default-billing-edit-link']";
   buttonSaveAddress = "[data-action='save-address']";
@@ -49,4 +49,4 @@ class PageMyAccount {
   }
 }
 
-export default PageMyAccount;
+export default MyAccountPage;

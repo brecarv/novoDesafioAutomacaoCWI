@@ -1,5 +1,6 @@
-class PageAccountCreation {
-  url = "/customer/account/create";
+import HomePage from "./home-page";
+
+class AccountCreationPage {
   inputFirstName = "#firstname";
   inputLastName = "#lastname";
   inputEmail = "#email_address";
@@ -7,8 +8,8 @@ class PageAccountCreation {
   inputPasswordConfirmation = "#password-confirmation";
   buttonCreateAnAccount = "button[title='Create an Account']";
 
-  visitPage() {
-    cy.visit(this.url);
+  visit() {
+    HomePage.visitCreateAccountPage();
   }
 
   fillPersonalInformation(firstName, lastName) {
@@ -29,4 +30,4 @@ class PageAccountCreation {
   }
 }
 
-export default PageAccountCreation;
+export default AccountCreationPage;

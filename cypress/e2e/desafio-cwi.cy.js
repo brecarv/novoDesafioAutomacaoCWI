@@ -1,18 +1,20 @@
 /// <reference types="cypress" />
 import { faker } from "@faker-js/faker";
-import PageAccountCreation from "../pages/page-account-creation";
-import PageMyAccount from "../pages/page-my-account";
+import HomePage from "../pages/home-page";
+import AccountCreationPage from "../pages/account-creation-page";
+import MyAccountPage from "../pages/my-account-page";
 
 describe("Desafio Automação Web - CWI", () => {
-  const pageAccountCreation = new PageAccountCreation();
-  const pageMyAccount = new PageMyAccount();
+  const accountCreationPage = new AccountCreationPage();
+  const myAccountPage = new MyAccountPage();
+  const homePage = new HomePage();
 
   beforeEach(() => {
     cy.visit("/");
   });
 
-  it.only("Deve cadastrar uma conta de usuário", () => {
-    pageAccountCreation.visitPage();
+  it("Deve cadastrar uma conta de usuário", () => {
+    accountCreationPage.visitPage();
 
     let firstName = faker.name.firstName();
     let lastName = faker.name.lastName();
@@ -38,7 +40,7 @@ describe("Desafio Automação Web - CWI", () => {
     // pageAccountCreate - Confirmation - 1.3 createAccount
     // cy.get("button[title='Create an Account']").click();
 
-    pageAccountCreation.createAccount(firstName, lastName, email, password);
+    accountCreationPage.createAccount(firstName, lastName, email, password);
 
     cy.get(".message-success").should("exist");
     cy.get("[data-ui-id='page-title-wrapper']").should(
@@ -48,7 +50,7 @@ describe("Desafio Automação Web - CWI", () => {
 
     // pageCustomerAccount - Address Book / Default Billing Address
     //cy.get("[data-ui-id='default-billing-edit-link']").click();
-    pageMyAccount.visitPage();
+    myAccountPage.visitPage();
 
     // pageCustomerAddress - Add New Address / Contact Information
     // cy.get("#firstname").clear().type(firstName);
@@ -66,7 +68,7 @@ describe("Desafio Automação Web - CWI", () => {
     // pageCustomerAddress - Confirmation
     // cy.get("[data-action='save-address']").click();
 
-    pageMyAccount.addDefaultBillingAddress(
+    myAccountPage.addDefaultBillingAddress(
       firstName,
       lastName,
       company,
@@ -89,8 +91,21 @@ describe("Desafio Automação Web - CWI", () => {
     );
   });
 
-  it("teste botao", () => {
+  it.only("teste botao", () => {
     // Seletor Create Account .header.links > li:nth-child(3)
-    cy.get(".header.links > li:nth-child(3)").first().click();
+    //cy.get(".header.links > li:nth-child(3)").first().click();
+    homePage.visitLoginPage();
+    cy.get("[data-ui-id='page-title-wrapper']").should(
+      "contain.text",
+      "Customer Login"
+    );
+
+    homePage.visitCreateAccountPage();
+    cy.get("[data-ui-id='page-title-wrapper']").should(
+      "contain.text",
+      "Create New Customer Account"
+    );
+
+    homePage.visit();
   });
 });
