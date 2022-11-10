@@ -1,5 +1,8 @@
+import HomePage from "./home-page";
 class MyAccountPage {
-  url = "/customer/account";
+  homePage = new HomePage();
+
+  //url = "/customer/account";
   linkBillingAddressEdit = "[data-ui-id='default-billing-edit-link']";
   buttonSaveAddress = "[data-action='save-address']";
   inputFirstName = "#firstname";
@@ -12,8 +15,9 @@ class MyAccountPage {
   inputZipCode = "#zip";
   inputCountry = "#country";
 
-  visitPage() {
-    cy.visit(this.url);
+  visit() {
+    //cy.visit(this.url);
+    this.homePage.visitMyAccountPage();
   }
 
   fillContactInformation(firstName, lastName, company, phone) {

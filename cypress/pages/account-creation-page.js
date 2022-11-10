@@ -1,6 +1,9 @@
 import HomePage from "./home-page";
 
 class AccountCreationPage {
+  homePage = new HomePage();
+
+  //url = "/customer/account/create/"
   inputFirstName = "#firstname";
   inputLastName = "#lastname";
   inputEmail = "#email_address";
@@ -9,7 +12,8 @@ class AccountCreationPage {
   buttonCreateAnAccount = "button[title='Create an Account']";
 
   visit() {
-    HomePage.visitCreateAccountPage();
+    //cy.visit(this.url);
+    this.homePage.visitCreateAccountPage();
   }
 
   fillPersonalInformation(firstName, lastName) {
