@@ -11,7 +11,7 @@ describe("Desafio Automação Web - CWI", () => {
     cy.visit("/");
   });
 
-  it("Deve cadastrar uma conta de usuário", () => {
+  it.only("Deve cadastrar uma conta de usuário", () => {
     pageAccountCreation.visitPage();
 
     let firstName = faker.name.firstName();
@@ -82,5 +82,15 @@ describe("Desafio Automação Web - CWI", () => {
 
     // pageCustomerAccount - My Account
     cy.get("#block-collapsible-nav li:nth-child(1)").click();
+
+    cy.get("[data-ui-id='page-title-wrapper']").should(
+      "contain.text",
+      "My Account"
+    );
+  });
+
+  it("teste botao", () => {
+    // Seletor Create Account .header.links > li:nth-child(3)
+    cy.get(".header.links > li:nth-child(3)").first().click();
   });
 });
