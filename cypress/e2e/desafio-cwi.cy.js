@@ -46,6 +46,7 @@ describe("Desafio Automação Web - CWI", () => {
       country
     );
     cy.get("[data-ui-id='message-success']").should("exist");
+    cy.get(`[href="tel:${phone}"]`).should("contain.text", phone);
 
     myAccountPage.visit();
     cy.get("[data-ui-id='page-title-wrapper']").should(
